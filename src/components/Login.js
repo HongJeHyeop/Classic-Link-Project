@@ -1,9 +1,14 @@
 import '../css/login.css';
 import loginImg from "../images/slide-image2.jfif";
 import kakaoLogin from "../images/kakao_login_medium_wide.png";
+import {useState} from "react";
+import axios, {post} from "axios";
 // import KakaoLogin from "react-kakao-login";
 
 function Login() {
+    const [inputId, setInputId] = useState('');
+    const [inputPassword, setinputPassword] = useState('');
+
     // const kakaoClientId = 'e6614a98ca70367c3dd12efc03a4e518';
     // const kakaoOnSuccess = async (data) => {
     //     console.log(data)
@@ -19,6 +24,14 @@ function Login() {
         const KAKAO_AUTH_URL = `https://kauth.kakao.com/oauth/authorize?response_type=code&client_id=${CLIENT_ID}&redirect_uri=${REDIRECT_URI}`
         window.location.href = KAKAO_AUTH_URL;
     }
+
+    const login_post = async () => {
+        const body = {inputId : inputId, inputPassword : inputPassword};
+        await axios.post('/users/login', body)
+            .then(value => console.log(value))
+            .catch(reason => console.log(reason))
+    }
+
     return (
         <div id="login">
             <div id="login-wrap">
@@ -28,10 +41,12 @@ function Login() {
                 </div>
                 <div id="login-box">
                     <h2>Login</h2>
-                    <input type="text" placeholder={"아이디"}/>
-                    <input type="text" placeholder={"비밀번호"}/>
+                    <input type="text" placeholder={"아이디"}
+                           onChange={(e) => setInputId(e.target.value)}/>
+                    <input type="text" placeholder={"비밀번호"}
+                           onChange={(e) => setinputPassword(e.target.value)}/>
                     <div id="btn-box">
-                        <button onClick={() => window.location.href = '/home'}>로그인</button>
+                        <button onClick={login_post}>로그인</button>
                         <button onClick={() => window.location.href = '/createAccount'}>회원가입</button>
                     </div>
                     <img onClick={loginWithKakao} src={kakaoLogin} alt={""} />

@@ -27,7 +27,7 @@ function CreateAccount() {
             major : majorRef.current.value
         }
         console.log(body)
-       await axios.post('/createAccount', body)
+       await axios.post('/users/createAccount', body)
             .then(value => {
                 console.log(value)
             })
