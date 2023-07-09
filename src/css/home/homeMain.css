@@ -1,0 +1,9 @@
+#home-main {
+    width: 70%;
+    box-sizing: border-box;
+    background-color: cadetblue;
+}
+#home-main > h1{
+    text-align: center;
+    font-size: 3rem;
+}

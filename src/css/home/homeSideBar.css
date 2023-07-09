@@ -1,0 +1,44 @@
+#home-side-bar {
+    position: relative;
+    width: 400px;
+    min-height: 100vh;
+
+    background-color: #ff5050;
+}
+
+/* 프로필 */
+#home-side-bar > #profile {
+    padding-top: 5rem;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+#profile > img{
+    margin: 0 auto;
+    width: 15rem;
+    height: 15rem;
+    border-radius: 50%;
+}
+#profile > h3 {
+    text-align: center;
+}
+
+/* 메뉴 */
+#home-side-bar > #menu {
+    margin: 3rem 0;
+
+    /*display: flex;*/
+    /*justify-content: center;*/
+    /*align-items: center;*/
+}
+#menu > ul > li{
+    padding: 1.5rem 0;
+    text-align: center;
+    border-bottom: 2px solid #fff;
+}
+#menu > ul > li > a {
+    color: #fff;
+    font-size: 1.2rem;
+    font-weight: bold;
+}

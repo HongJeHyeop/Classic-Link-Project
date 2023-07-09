@@ -1,0 +1,64 @@
+#create-account-wrap {
+    margin: 0 auto;
+    padding: 2rem 0;
+    width: 1280px;
+    /*background-color: cadetblue;*/
+}
+#create-account-wrap > h2{
+    margin: 1rem 0;
+    text-align: center;
+    font-size: 2rem;
+    font-weight: bold;
+    color: #222;
+    text-shadow: 1px 1px 2px #999;
+}
+
+/* 회원가입 테이블 */
+#create-account-wrap > table {
+    margin: 0 auto;
+    padding: 1rem;
+    width: 50rem;
+    border-spacing: 0;
+    border: 2px solid #ccc;
+    box-shadow: 0 1px 3px 1px #ddd;
+    border-radius: 20px;
+}
+#create-account-wrap > table > tr > td {
+    padding: 2rem 1rem;
+    border-bottom: 1px solid #ddd;
+    font-size: 0.8rem;
+    color: #ff5050;
+}
+#create-account-wrap > table > tr > td:first-child {
+    width: 30%;
+    text-align: right;
+    font-size: 1.1rem;
+    color: #111;
+}
+#create-account-wrap > table > tr > td > input {
+    width: 15rem;
+    height: 1.5rem;
+}
+
+/* 회원가입, 돌아가기 버튼 */
+#account-btn-box {
+    margin: 2rem 0;
+    display: flex;
+    justify-content: center;
+}
+#account-btn-box > button{
+    margin: 0 3rem;
+    width: 7rem;
+    height: 2.3rem;
+    font-size: 1rem;
+    color: #fff;
+    border: none;
+    border-radius: 10px;
+    background-color: rgba(18, 68, 150, 0.8);
+    cursor: pointer;
+}
+#account-btn-box > button:active {
+    width: 6.7rem;
+    height: 2rem;
+    background-color: rgba(18, 68, 150, 0.5);
+}
