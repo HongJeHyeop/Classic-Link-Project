@@ -28,7 +28,16 @@ function Login() {
     const login_post = async () => {
         const body = {inputId : inputId, inputPassword : inputPassword};
         await axios.post('/users/login', body)
-            .then(value => console.log(value))
+            .then(value => {
+                console.log(value.data)
+                if (value.data.is_logined) {
+                    alert('로그인에 성공하였습니다.')
+                    window.location.href ='/home';
+                } else {
+                    alert('로그인이 실패하였습니다.')
+                }
+
+            })
             .catch(reason => console.log(reason))
     }
 
