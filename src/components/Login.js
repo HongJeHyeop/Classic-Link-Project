@@ -3,11 +3,15 @@ import loginImg from "../images/slide-image2.jfif";
 import kakaoLogin from "../images/kakao_login_medium_wide.png";
 import {useState} from "react";
 import axios, {post} from "axios";
+import {useNavigate} from "react-router-dom";
+
 // import KakaoLogin from "react-kakao-login";
 
 function Login() {
     const [inputId, setInputId] = useState('');
     const [inputPassword, setinputPassword] = useState('');
+    const navigate = useNavigate();
+
 
     // const kakaoClientId = 'e6614a98ca70367c3dd12efc03a4e518';
     // const kakaoOnSuccess = async (data) => {
@@ -26,13 +30,17 @@ function Login() {
     }
 
     const login_post = async () => {
-        const body = {inputId : inputId, inputPassword : inputPassword};
+        const body = {inputId: inputId, inputPassword: inputPassword};
         await axios.post('/users/login', body)
             .then(value => {
                 console.log(value.data)
                 if (value.data.is_logined) {
-                    alert('로그인에 성공하였습니다.')
-                    window.location.href ='/home';
+                    navigate('/home', {
+                        state: {
+                            user: value.data,
+                            test: 'test'
+                        }
+                    })
                 } else {
                     alert('로그인이 실패하였습니다.')
                 }
@@ -58,7 +66,7 @@ function Login() {
                         <button onClick={login_post}>로그인</button>
                         <button onClick={() => window.location.href = '/createAccount'}>회원가입</button>
                     </div>
-                    <img onClick={loginWithKakao} src={kakaoLogin} alt={""} />
+                    <img onClick={loginWithKakao} src={kakaoLogin} alt={""}/>
                     <p>아이디/비밀번호 찾기</p>
                 </div>
             </div>

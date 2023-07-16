@@ -1,12 +1,13 @@
 import "../../css/home/homeSideBar.css";
 import profileImg from "../../images/slide-image2.jfif";
 
-export default function HomeSideBar() {
+export default function HomeSideBar(props) {
+    const nickName = props.userNickName;
     return(
         <div id="home-side-bar">
             <div id="profile">
                 <img src={profileImg} alt="PROFILE"/>
-                <h3>닉네임</h3>
+                <h3>{nickName}</h3>
             </div>
             <div id="menu">
                 <ul>

@@ -30,6 +30,7 @@ function CreateAccount() {
        await axios.post('/users/createAccount', body)
             .then(value => {
                 console.log(value)
+                window.location.href = '/';
             })
             .catch(reason => {
                 console.log(reason)

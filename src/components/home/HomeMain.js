@@ -6,7 +6,7 @@ export default function HomeMain() {
         await axios.post('/users/logout')
             .then(res => {
                 console.log(res)
-                window.location.href='/'
+                window.location.href = '/'
             })
             .catch(err => console.log(err))
 
@@ -15,8 +15,10 @@ export default function HomeMain() {
 
     return (
         <div id="home-main">
-            <h1>홈화면</h1>
-            <button onClick={logout}>logout</button>
+            <div id="home-main-wrap">
+                <h1>홈화면</h1>
+                <button onClick={logout}>logout</button>
+            </div>
         </div>
     )
 }
